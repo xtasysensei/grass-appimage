@@ -16,7 +16,7 @@ script:
   - mkdir -p usr/bin
   # Extract the .deb file
   - dpkg-deb -x /home/xtasy/Downloads/grass/grass_4.28.2_amd64.deb .
-  # Copy files to their locations. remove the corresponding sp command incase of an error
+  # Copy files to their locations. remove the corresponding cp command incase of an error
   - cp -r usr/share/applications/* usr/share/applications/
   - cp -r usr/share/icons/* usr/share/icons/
   - cp -r usr/lib/icons/* usr/lib/icons/

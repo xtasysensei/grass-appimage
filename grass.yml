@@ -1,0 +1,24 @@
+app: Grass-2.0
+ingredients:
+  dist: ubuntu-22.04
+  sources:
+    - deb https://files.getgrass.io/file/grass-extension-upgrades/ubuntu-22.04/grass_4.28.2_amd64.deb
+  debs:
+    - /home/xtasy/Downloads/grass/grass_4.28.2_amd64.deb
+  packages:
+    - libayatana-appindicator3-1
+    - libwebkit2gtk-4.1-0
+    - libgtk-3-0
+script:
+  - mkdir -p usr/share/applications
+  - mkdir -p usr/share/icons
+  - mkdir -p usr/lib/icons
+  - mkdir -p usr/bin
+  # Extract the .deb file
+  - dpkg-deb -x /home/xtasy/Downloads/grass/grass_4.28.2_amd64.deb .
+  # Copy files to their locations. remove the corresponding sp command incase of an error
+  - cp -r usr/share/applications/* usr/share/applications/
+  - cp -r usr/share/icons/* usr/share/icons/
+  - cp -r usr/lib/icons/* usr/lib/icons/
+  - cp usr/bin/grass usr/bin/
+  - cp usr/share/icons/hicolor/256x256@2/apps/grass.png grass.png
